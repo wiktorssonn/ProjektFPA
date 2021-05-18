@@ -1,24 +1,47 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import axios from 'axios';
 
 export default function ApiCall(props) {
-    // API CALLLLLLLLL
-    var apiKey = 'coinrankingb864e0cf9a96fe2d2bc403cad1e2be110652e102bd50c693'
-
-    const [posts, setPosts] = useState([])
 
     function FetchCrypto() {
+        // Nollställer listorna vid nytt anrop
+        props.chartData.length = 0;
+        props.categoryData.length = 0;
+
         // Variabel för vald kryptovaluta i select-listan
         const selectRef = props.selectRef.current.value;
 
         // URL till api:et
-        const  baseUrl = 'https://api.coincap.io/v2/assets/' + selectRef.toLowerCase();
+        const graphData = 'https://api.coincap.io/v2/assets/' + selectRef.toLowerCase() + '/history?interval=d1';
+
+        const cryptoData = 'https://api.coincap.io/v2/assets/' + selectRef.toLowerCase();
         
         // API-requesten
-        axios.get(baseUrl
-        )
+        axios.get(graphData)
+
         .then(function (response) {
             console.log(response);
+
+            const cryptoArray = response.data.data
+            // Längden på datan i response
+            let cryptoLength = cryptoArray.length;
+            // Längden minus 31 för att hämta ut de senaste 30 dagarna
+            let days = cryptoLength - 31;
+
+            Object.keys(cryptoArray)
+                .forEach(function(index) {
+                    if (index > days) {
+                        props.chartData.push(cryptoArray[index]["priceUsd"].substring(0, 9));
+                        props.categoryData.push(cryptoArray[index]["date"].substring(0, 10));
+                    }
+            });
+            console.log(props.chartData);
+            console.log(props.categoryData);
+
+            // Sätter nytt state efter att listorna uppdaterats
+            props.setChartData([...props.chartData]);
+            props.setCategoryData([...props.categoryData]);
+
         })
         .catch(function (error) {
             console.log(error);

@@ -1,13 +1,12 @@
 import react from 'react';
-import Crypto from './Crypto';
-// import Chart from "react-apexcharts";
+import CryptoForm from './CryptoForm';
 
 function App() {
   return (
     <div className="container">
       <h1>App</h1>
 
-      <Crypto />
+      <CryptoForm />
     </div>
   );
 }
