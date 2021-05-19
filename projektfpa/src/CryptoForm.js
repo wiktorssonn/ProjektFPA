@@ -23,13 +23,18 @@ export default function CryptoForm() {
                     <option value="Bitcoin">Bitcoin</option>
                     <option value="Ethereum">Ethereum</option>
                     <option value="Dogecoin">Dogecoin</option>
-                    <option value="Lifecoin">Lifecoin</option>
+                    <option value="Litecoin">Litecoin</option>
+                    <option value="XRP">XRP</option>
+                    <option value="Tether">Tether</option>
+                    <option value="Polkadot">Polkadot</option>
+                    <option value="Cardano">Cardano</option>
+
                 </select>
             </form>
 
-            <ApiCall selectRef={selectRef} chartData={chartData} setChartData={setChartData} categoryData={categoryData} setCategoryData={setCategoryData} cryptoData={cryptoData} setCryptoData={setCryptoData} />
+            <ApiCall selectRef={selectRef} chartData={chartData} setChartData={setChartData} categoryData={categoryData} setCategoryData={setCategoryData} cryptoData={cryptoData} setCryptoData={setCryptoData}/>
 
-            <DisplayData cryptoData={cryptoData} />
+            <DisplayData cryptoData={cryptoData}/>
 
             <DisplayChart chartData={chartData} categoryData={categoryData} />
         </div>

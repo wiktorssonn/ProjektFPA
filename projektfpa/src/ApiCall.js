@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import axios from 'axios';
 
 export default function ApiCall(props) {
@@ -7,6 +7,7 @@ export default function ApiCall(props) {
         // Nollställer listorna vid nytt anrop
         props.chartData.length = 0;
         props.categoryData.length = 0;
+        props.cryptoData.length = 0;
 
         // Variabel för vald kryptovaluta i select-listan
         const selectRef = props.selectRef.current.value;
@@ -55,31 +56,29 @@ export default function ApiCall(props) {
             // Hämtar dagens datum
             let todaysDate = new Date().toISOString().slice(0, 10);
 
+
             const responseData = response.data.data
+            console.log(responseData);
             
             props.setCryptoData([...props.cryptoData, {
-                name: "CryptoCurrency",
+                name: "Kryptovaluta",
                 key: responseData["name"]
             },
             {
-                name: "Date",
+                name: "Datum",
                 key: todaysDate
             },
             {
-                name: "Price",
-                key: responseData["priceUsd"]
+                name: "Pris",
+                key: responseData["priceUsd"].substring(0, 8) + " USD"
             },
             {
-                name: "Supply",
-                key: responseData["supply"]
+                name: "Tillgängliga andelar",
+                key: responseData["supply"].substring(0, 15)
             },
             {
-                name: "MaxSupply",
-                key: responseData["maxSupply"]
-            },
-            {
-                name: "MarketCap",
-                key: responseData["marketCapUsd"]
+                name: "Marknadsvärde",
+                key: responseData["marketCapUsd"].substring(0, 15) + " USD"
             }]);
         })
         .catch(function (error) {
