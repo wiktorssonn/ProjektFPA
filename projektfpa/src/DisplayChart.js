@@ -19,7 +19,7 @@ export default function DisplayChart(props) {
             categories: props.categoryData,
             labels: {
                 style: {
-                    fontSize: '0.8rem'
+                    
                 }
             }
           },
@@ -27,7 +27,7 @@ export default function DisplayChart(props) {
             decimalsInFloat: 2,
             labels: {
                 style: {
-                    fontSize: '1rem'
+                    
                 }
             }
           }
@@ -47,6 +47,7 @@ export default function DisplayChart(props) {
                 series={state.series}
                 type="line"
                 width="100%"
+                height="100%"
             />
         </div>
     );

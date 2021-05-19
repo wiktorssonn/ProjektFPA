@@ -1,11 +1,16 @@
 import React, {useState, useRef} from 'react';
 import ApiCall from './ApiCall';
-import DisplayChart from './DisplayChart'
+import DisplayChart from './DisplayChart';
+import DisplayData from './DisplayData';
 
 export default function CryptoForm() {
 
+    // Data för grafen
     const [chartData, setChartData] = useState([]); //x axeln
     const [categoryData, setCategoryData] = useState([]); // y axeln 
+
+    // Data om vald krypto
+    const [cryptoData, setCryptoData] = useState([]);
 
     // Variabel för att få ut valda kryptovaluta
     const selectRef = useRef();
@@ -22,7 +27,9 @@ export default function CryptoForm() {
                 </select>
             </form>
 
-            <ApiCall selectRef={selectRef} chartData={chartData} setChartData={setChartData} categoryData={categoryData} setCategoryData={setCategoryData} />
+            <ApiCall selectRef={selectRef} chartData={chartData} setChartData={setChartData} categoryData={categoryData} setCategoryData={setCategoryData} cryptoData={cryptoData} setCryptoData={setCryptoData} />
+
+            <DisplayData cryptoData={cryptoData} />
 
             <DisplayChart chartData={chartData} categoryData={categoryData} />
         </div>

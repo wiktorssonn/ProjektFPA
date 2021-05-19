@@ -13,26 +13,28 @@ export default function ApiCall(props) {
 
         // URL till api:et
         const graphData = 'https://api.coincap.io/v2/assets/' + selectRef.toLowerCase() + '/history?interval=d1';
-
         const cryptoData = 'https://api.coincap.io/v2/assets/' + selectRef.toLowerCase();
         
-        // API-requesten
+        // API-requesten för att visa upp graf för vald valuta
         axios.get(graphData)
-
         .then(function (response) {
             console.log(response);
-
-            const cryptoArray = response.data.data
+            // Variabel för responsdatan
+            const graphArray = response.data.data
+            
             // Längden på datan i response
-            let cryptoLength = cryptoArray.length;
+            let graphLength = graphArray.length;
+            
             // Längden minus 31 för att hämta ut de senaste 30 dagarna
-            let days = cryptoLength - 31;
+            let days = graphLength - 31;
 
-            Object.keys(cryptoArray)
+            // Går igenom svaret och lägger till data från de senaste 30 
+            // dagarna i två olika listor
+            Object.keys(graphArray)
                 .forEach(function(index) {
                     if (index > days) {
-                        props.chartData.push(cryptoArray[index]["priceUsd"].substring(0, 9));
-                        props.categoryData.push(cryptoArray[index]["date"].substring(0, 10));
+                        props.chartData.push(graphArray[index]["priceUsd"].substring(0, 9));
+                        props.categoryData.push(graphArray[index]["date"].substring(0, 10));
                     }
             });
             console.log(props.chartData);
@@ -41,20 +43,54 @@ export default function ApiCall(props) {
             // Sätter nytt state efter att listorna uppdaterats
             props.setChartData([...props.chartData]);
             props.setCategoryData([...props.categoryData]);
-
         })
         .catch(function (error) {
             console.log(error);
         })
-        
+
+
+        // API-requesten för att visa upp data om vald valuta
+        axios.get(cryptoData)
+        .then(function (response) {
+            // Hämtar dagens datum
+            let todaysDate = new Date().toISOString().slice(0, 10);
+
+            const responseData = response.data.data
+            
+            props.setCryptoData([...props.cryptoData, {
+                name: "CryptoCurrency",
+                key: responseData["name"]
+            },
+            {
+                name: "Date",
+                key: todaysDate
+            },
+            {
+                name: "Price",
+                key: responseData["priceUsd"]
+            },
+            {
+                name: "Supply",
+                key: responseData["supply"]
+            },
+            {
+                name: "MaxSupply",
+                key: responseData["maxSupply"]
+            },
+            {
+                name: "MarketCap",
+                key: responseData["marketCapUsd"]
+            }]);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     }
 
     return (
         <div>
             <button className="btn btn-success mt-3 mb-4" onClick={FetchCrypto}>Hämta valuta</button>
-            <ul>
-                <li>Info om kryptovalutan vi hämtat från apiet</li>
-            </ul>
         </div>
     )
 }
+
