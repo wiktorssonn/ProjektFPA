@@ -18,21 +18,18 @@ export default function LocalStorage(props) {
     }
         
     function addToWatchlist() {
-
         const loadData = loadWatchList();
         loadData.push(props.cryptoData)
 
         localStorage.setItem("cryptoData", JSON.stringify(loadData));
-
     }
 
-    
     const test = loadWatchList();
 
     for (let i = 0; i < test.length; i++) {
         console.log(test[i][i]);
     }
-  
+    
     return (
         <div>
             <button className="btn btn-success" onClick={addToWatchlist}>Lägg till bevakning</button>
