@@ -19,7 +19,6 @@ export default function ApiCall(props) {
         // API-requesten för att visa upp graf för vald valuta
         axios.get(graphData)
         .then(function (response) {
-            console.log(response);
             // Variabel för responsdatan
             const graphArray = response.data.data
             
@@ -38,8 +37,6 @@ export default function ApiCall(props) {
                         props.categoryData.push(graphArray[index]["date"].substring(0, 10));
                     }
             });
-            console.log(props.chartData);
-            console.log(props.categoryData);
 
             // Sätter nytt state efter att listorna uppdaterats
             props.setChartData([...props.chartData]);
@@ -54,11 +51,10 @@ export default function ApiCall(props) {
         axios.get(cryptoData)
         .then(function (response) {
             // Hämtar dagens datum
-            let todaysDate = new Date().toISOString().slice(0, 10);
+            const  todaysDate = new Date().toISOString().slice(0, 10);
 
-
+            // Responsedata
             const responseData = response.data.data
-            console.log(responseData);
             
             props.setCryptoData([...props.cryptoData, {
                 name: "Kryptovaluta",

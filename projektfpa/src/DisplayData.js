@@ -3,29 +3,24 @@ import LocalStorage from './LocalStorage';
 
 export default function DisplayData(props) {
 
-    function test() {
-        return <LocalStorage cryptoData={props.cryptoData} />
-    }
-
+    // Variabel som räknar upp för att ge varje list-item ett unikt id
+    let i = 0;
     return (
         <div>
-            
-            <div class="card border-success mb-4">
-                <div class="card-body text-dark">
-                        <h5 class="card-title"></h5> 
-                        <ul>
+            <div className="card border-success mb-4">
+                <div className="card-body text-dark">
+                    <ul>
                         { props.cryptoData.map((item) =>
-                            <li className="list-unstyled text-center">{item.name} - { item.key }</li>
+                            <li key={i++} className="list-unstyled text-center">{item.name} - { item.key }</li>
                         )}
-                        </ul>
+                    </ul>
                 </div>
 
-                <div class="card-footer bg-transparent border-success text-center">
+                <div className="card-footer bg-transparent border-success text-center">
                     <LocalStorage cryptoData={props.cryptoData} />
                 </div>
             </div>
-            <div class="card border-success mb-3"></div>
-            
+            <div className="card border-success mb-3"></div>   
         </div>
         
     )
