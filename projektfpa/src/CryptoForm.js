@@ -17,7 +17,7 @@ export default function CryptoForm() {
 
     return (
         <div className="container">
-            <h1 className="mt-4">Välj önskad valuta från listan</h1>
+            <h3 className="mt-5">Välj önskad valuta från listan</h3>
             <form>
                 <select className="form-select" ref={selectRef}>
                     <option value="Bitcoin">Bitcoin</option>
