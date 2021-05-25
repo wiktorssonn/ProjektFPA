@@ -4,7 +4,7 @@ Ett projekt gjort i kursen "flerplattformsapplikationer" för att visa upp graf 
 
 ## Beskrivning
 
-Applikationen använder sig av ett api kallat "coincap" för att hämta data om vald kryptovaluta. Datan presenteras sedan i en graf som skapas med hjälp av biblioteket chart.js. Anropet till coincap görs med hjälp av biblioteket axios. När datan är hämtad presenteras en graf och en textruta med relevant information om kryptovalutan. Denna data kan sedan sparas i en bevakningslista som skrivs till localStorage så att informationen är sparad tills nästa gång användaren besöker sidan. 
+Applikationen använder sig av ett api kallat "coincap" för att hämta data om vald kryptovaluta. Datan presenteras sedan i en graf som skapas med hjälp av biblioteket Apexcharts. Anropet till coincap görs med hjälp av biblioteket axios. När datan är hämtad presenteras en graf och en textruta med relevant information om kryptovalutan. Denna data kan sedan sparas i en bevakningslista som skrivs till localStorage så att informationen är sparad tills nästa gång användaren besöker sidan. 
 
 
 ### React vs Angular vs Vue
