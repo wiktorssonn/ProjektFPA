@@ -1,70 +1,16 @@
-# Getting Started with Create React App
+# Cryptochecker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ett projekt gjort i kursen "flerplattformsapplikationer" för att visa upp graf och data om vald kryptovaluta.
 
-## Available Scripts
+## Beskrivning
 
-In the project directory, you can run:
+Applikationen använder sig av ett api kallat "coincap" för att hämta data om vald kryptovaluta. Datan presenteras sedan i en graf som skapas med hjälp av biblioteket chart.js. Anropet till coincap görs med hjälp av biblioteket axios. När datan är hämtad presenteras en graf och en textruta med relevant information om kryptovalutan. Denna data kan sedan sparas i en bevakningslista som skrivs till localStorage så att informationen är sparad tills nästa gång användaren besöker sidan. 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### React vs Angular vs Vue
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+React var lite av favoriten redan innan vi började då vi hade fått en grundläggande föreläsning kring detta ramverket samt gjort en uppgift i React. Vi kände att vi hellre ville utveckla våra kunskaper kring React än att börja arbeta med ett nytt ramverk. Förutom detta så finns det även en stor del av arbetsmarknaden som söker utvecklare inom React vilket var ännu en anledning att fortsätta arbeta med React. Även om alla tre ramverken är attraktiva och Vue mest troligt är på uppgång så finns det i nuläget inte lika mycket hjälp att hitta på exempelvis stackoverflow kring Vue än vad som finns om React och Angular. Vue lockade mer än Angular på grund av sin enkelhet och flexibilitet men vi tyckte React var ett bättre valp på grund av våra förkunskaper och viss tidsbegränsning. Tidsbegränsning gjorde att vi valde bort Angular ganska tidigt då Angular har en brantare inlärningskurva, förmodligen på grund av att Angular kräver att man har grundläggande kunskap inom MVC och TypeScript som vi bara har rört vid lite i tidigare kurser. Angular skiljer även på UI och JS kod som då tvingar oss att lära oss hur kopplingen mellan HTML och JS fungerar, vilket bara kan göras genom att utforska och läsa över internet då Angular inte erbjuder en typ av “Getting started” guide. Därför blir React det självklara valet då uppgiften har ett fast slutdatum som vi inte ville missa. 
 
-### `npm test`
+### Författare
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Adam Wiktorsson, Johan From & Jonathan Göransson
