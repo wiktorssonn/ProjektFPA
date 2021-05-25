@@ -17,19 +17,24 @@ export default function CryptoForm() {
 
     return (
         <div className="container">
-            <h1 className="mt-4">Välj önskad valuta från listan</h1>
+            <h3 className="mt-5">Välj önskad valuta från listan</h3>
             <form>
                 <select className="form-select" ref={selectRef}>
                     <option value="Bitcoin">Bitcoin</option>
                     <option value="Ethereum">Ethereum</option>
                     <option value="Dogecoin">Dogecoin</option>
-                    <option value="Lifecoin">Lifecoin</option>
+                    <option value="Litecoin">Litecoin</option>
+                    <option value="XRP">XRP</option>
+                    <option value="Tether">Tether</option>
+                    <option value="Polkadot">Polkadot</option>
+                    <option value="Cardano">Cardano</option>
+
                 </select>
             </form>
 
-            <ApiCall selectRef={selectRef} chartData={chartData} setChartData={setChartData} categoryData={categoryData} setCategoryData={setCategoryData} cryptoData={cryptoData} setCryptoData={setCryptoData} />
+            <ApiCall selectRef={selectRef} chartData={chartData} setChartData={setChartData} categoryData={categoryData} setCategoryData={setCategoryData} cryptoData={cryptoData} setCryptoData={setCryptoData}/>
 
-            <DisplayData cryptoData={cryptoData} />
+            <DisplayData cryptoData={cryptoData}/>
 
             <DisplayChart chartData={chartData} categoryData={categoryData} />
         </div>
