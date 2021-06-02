@@ -4,7 +4,7 @@ import CryptoForm from './CryptoForm';
 function App() {
   return (
     <div className="container">
-      <h1>App</h1>
+      <h1 className="text-center mt-2">CryptoChecker</h1>
 
       <CryptoForm />
     </div>
